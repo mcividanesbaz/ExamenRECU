@@ -78,6 +78,13 @@ public class ItemListActivity extends AppCompatActivity
      */
     @Override
     public void onItemSelected(String id) {
+     //Recogemos la variable
+        boolean dual_pane = getResources().getBoolean(R.bool.dual_pane);
+        //Al pulsar un item, si el dispositivo se encuentra en posicion landscape mostramos una toast que dice tumbado
+               if(dual_pane){
+                        Toast.makeText(ItemListActivity.this, "Tumbado", Toast.LENGTH_SHORT).show();
+                    }
+
         if (mTwoPane) {
             // In two-pane mode, show the detail view in this activity by
             // adding or replacing the detail fragment using a
@@ -95,7 +102,8 @@ public class ItemListActivity extends AppCompatActivity
             // for the selected item ID.
             Intent detailIntent = new Intent(this, ItemDetailActivity.class);
             detailIntent.putExtra(ItemDetailFragment.ARG_ITEM_ID, id);
-            startActivity(detailIntent);
+            //iniciamos otra activity para que nos devuelva un dato
+                      startActivityForResult(detailIntent, 1);
         }
     }
     //Metodo para el pulsar el boton Limpiar.
