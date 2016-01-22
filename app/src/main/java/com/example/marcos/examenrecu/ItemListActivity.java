@@ -1,5 +1,6 @@
 package com.example.marcos.examenrecu;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 /**
@@ -102,5 +104,17 @@ public class ItemListActivity extends AppCompatActivity
                 if (textview1 != null)
                        textview1.setText(" ");
            }
+
+    //Cuando cerremos la activity del detalle se lanzara este metodo
+      @Override
+        protected void onActivityResult(int requestCode, int resultCode, Intent intentData) {
+
+                        if(requestCode == 1){
+                        if(resultCode == Activity.RESULT_OK){
+                                String dato = intentData.getStringExtra("resultado");
+                                Toast.makeText(ItemListActivity.this, dato, Toast.LENGTH_SHORT).show();
+                            }
+                    }
+            }
 
 }
