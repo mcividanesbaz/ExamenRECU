@@ -106,7 +106,7 @@ public class ItemListActivity extends AppCompatActivity
                       startActivityForResult(detailIntent, 1);
         }
     }
-    //Metodo para el pulsar el boton Limpiar.
+    //Metodo para el pulsar el boton Limpiar.Recogemos el textview del fragment detalle y lo borramos
         public void botonLimpiar(View view){
                TextView textview1 = (TextView) findViewById(R.id.item_detail);
                 if (textview1 != null)
